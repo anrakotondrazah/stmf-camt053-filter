@@ -12,7 +12,7 @@ interface Props {
   onClearHistory: () => void;
 }
 
-const MAX = 10 * 1024 * 1024;
+const MAX = 50 * 1024 * 1024;
 const fmtSize = (n: number) => (n > 1048576 ? `${(n / 1048576).toFixed(1)} Mo` : `${Math.max(1, Math.round(n / 1024))} Ko`);
 
 export function Home({ session, history, onAnalyze, onClearHistory }: Props) {
@@ -28,7 +28,7 @@ export function Home({ session, history, onAnalyze, onClearHistory }: Props) {
       return;
     }
     if (f.size > MAX) {
-      toast("error", "Fichier trop volumineux", "La taille maximale est de 10 Mo.");
+      toast("error", "Fichier trop volumineux", "La taille maximale est de 50 Mo.");
       return;
     }
     setFile(f);
@@ -81,7 +81,7 @@ export function Home({ session, history, onAnalyze, onClearHistory }: Props) {
             </div>
             <div className="text-center">
               <p className="text-lg font-medium text-slate-600 dark:text-slate-300">{drag ? "Relachez pour deposer" : "Deposez votre fichier camt.053"}</p>
-              <p className="mt-1 text-sm text-slate-400">ou cliquez pour parcourir - XML - 10 Mo max</p>
+              <p className="mt-1 text-sm text-slate-400">ou cliquez pour parcourir - XML - 50 Mo max</p>
             </div>
             <input ref={input} type="file" accept=".xml,.camt,.053,text/xml,application/xml" onChange={(e) => { accept(e.target.files?.[0]); e.target.value = ""; }} />
           </div>
