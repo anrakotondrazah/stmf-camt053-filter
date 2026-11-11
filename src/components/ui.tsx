@@ -3,14 +3,18 @@ import { AlertTriangle, CheckCircle2, Info, XCircle, X } from "lucide-react";
 import { cn } from "../utils/cn";
 
 /* ───────── Logo ───────── */
+const LOGO_URL = "https://res.cloudinary.com/kd5ujryr/image/upload/v1786551389/4123cb2b-4754-453b-bf59-b930012e9a3b_rtkzir.jpg";
+
 export function Logo({ light = false, compact = false }: { light?: boolean; compact?: boolean }) {
   return (
     <div className="flex items-center gap-2.5 select-none">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden>
-        <rect width="34" height="34" rx="9" fill={light ? "#fff" : "#1E3A5F"} />
-        <path d="M8 26V14.5L17 8l9 6.5V26" stroke={light ? "#1E3A5F" : "#fff"} strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
-        <path d="M13 26v-6h8v6" stroke="#C9A227" strokeWidth="1.8" strokeLinejoin="round" />
-      </svg>
+      <img
+        src={LOGO_URL}
+        alt="STMF Gestion Locative"
+        width={compact ? 34 : 40}
+        height={compact ? 34 : 40}
+        className="rounded-lg object-contain"
+      />
       {!compact && (
         <div className="leading-none">
           <div className={cn("text-[17px] font-semibold tracking-wide", light ? "text-white" : "text-navy")}>STMF</div>
